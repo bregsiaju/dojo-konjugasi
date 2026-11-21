@@ -177,3 +177,13 @@ h3{font-size:13px;margin:0;color:var(--muted);font-weight:500;letter-spacing:.04
 .q-gloss{font-size:15px;color:var(--muted);margin-top:-6px}
 .q-gloss b{color:var(--ink);font-weight:700}
 td.a .gloss{display:block;font-family:var(--f-body);font-weight:500;font-size:13px;color:var(--ai);margin-top:2px}
+
+/* contoh kalimat */
+.ex{display:flex;flex-direction:column;gap:2px}
+.ex-ja{font-size:17px;line-height:2.1;color:var(--ink)}
+.ex-ja ruby rt{font-size:.5em}
+.ex-ja mark{background:color-mix(in oklab,var(--shu) 16%,transparent);color:inherit;border-radius:3px;padding:0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.ex-id{color:var(--muted);font-size:13.5px}
+.ex.compact{margin-top:8px;padding-top:6px;border-top:1px dashed var(--line)}
+.ex.compact .ex-ja{font-size:14.5px;line-height:2}
+.ex.compact .ex-id{font-size:12.5px}

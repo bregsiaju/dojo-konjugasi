@@ -6,6 +6,8 @@ import { Mark } from '../components/Mark';
 import { Ruby } from '../components/Ruby';
 import { FORM_BY_ID, formLabel, GROUP_NAME } from '../data/forms';
 import { conjugate, uniqueSolutions } from '../lib/conjugate';
+import { ExampleSentence } from '../components/ExampleSentence';
+import { exampleFor } from '../lib/examples';
 import { explain } from '../lib/explain';
 import { gloss } from '../lib/gloss';
 import { hasLatin, normalizeAnswer, romaToKana } from '../lib/kana';
@@ -172,6 +174,9 @@ export function DrillPage() {
               <span className="big" lang="ja"><Ruby k={main.k} r={main.r} /></span>
             </FbRow>
             <FbRow label="Arti">{meaning}</FbRow>
+            <FbRow label="Contoh">
+              <ExampleSentence example={exampleFor(item.w, item.f)} />
+            </FbRow>
             {alts.length > 0 && (
               <FbRow label="Juga benar">
                 <span className="alts" lang="ja">

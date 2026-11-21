@@ -3,6 +3,8 @@ import { Feedback, FbRow } from '../components/Feedback';
 import { Ruby } from '../components/Ruby';
 import { FORM_BY_ID, FORMS, formLabel } from '../data/forms';
 import { applies, conjugate } from '../lib/conjugate';
+import { ExampleSentence } from '../components/ExampleSentence';
+import { exampleFor } from '../lib/examples';
 import { explain } from '../lib/explain';
 import { gloss } from '../lib/gloss';
 import type { PoolItem } from '../lib/srs';
@@ -110,6 +112,9 @@ export function ReversePage() {
             {FORM_BY_ID[shown].name} <span className="pat" lang="ja">{FORM_BY_ID[shown].jp}</span>
           </FbRow>
           <FbRow label="Arti">{gloss(q.w, shown)}</FbRow>
+          <FbRow label="Contoh">
+            <ExampleSentence example={exampleFor(q.w, shown)} />
+          </FbRow>
           {q.same.length > 1 && (
             <FbRow label="Bisa juga">
               {q.same.filter((x) => x !== shown).map((x) => FORM_BY_ID[x].name).join(', ')}. Konteks kalimat yang menentukan.

@@ -4,6 +4,8 @@ import { Ruby } from '../components/Ruby';
 import { FORM_BY_ID, FORM_GROUPS, GROUP_NAME } from '../data/forms';
 import { WORDS } from '../data/words';
 import { applies, conjugate, uniqueSolutions, WORD_BY_ID } from '../lib/conjugate';
+import { ExampleSentence } from '../components/ExampleSentence';
+import { exampleFor } from '../lib/examples';
 import { explain } from '../lib/explain';
 import { gloss } from '../lib/gloss';
 import { romaToKana } from '../lib/kana';
@@ -100,6 +102,7 @@ export function TablePage() {
                             <Html html={n} />
                           </span>
                         ))}
+                        <ExampleSentence example={exampleFor(word, id)} compact />
                       </td>
                     </tr>
                   );

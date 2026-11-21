@@ -30,6 +30,7 @@ src/
     forms.ts        daftar bentuk konjugasi dan pengelompokannya
     keigo.ts        bentuk sonkeigo / kenjōgo per kata
     passive.ts      arti pasif bahasa Indonesia untuk kata kerja transitif (ditulis, dimakan, …)
+    examples.ts     contoh kalimat per bentuk ({漢字|かんじ} = furigana, [ … ] = bagian yang disorot)
   lib/
     conjugate.ts    mesin konjugasi berbasis aturan
     explain.ts      penjelasan aturan dalam bahasa Indonesia
