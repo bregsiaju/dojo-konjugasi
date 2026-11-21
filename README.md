@@ -29,9 +29,11 @@ src/
     words.ts        daftar kosakata (kanji, kana, arti, jenis, level)
     forms.ts        daftar bentuk konjugasi dan pengelompokannya
     keigo.ts        bentuk sonkeigo / kenjōgo per kata
+    passive.ts      arti pasif bahasa Indonesia untuk kata kerja transitif (ditulis, dimakan, …)
   lib/
     conjugate.ts    mesin konjugasi berbasis aturan
     explain.ts      penjelasan aturan dalam bahasa Indonesia
+    gloss.ts        arti setiap bentuk (冷たくて → "dingin dan …; karena dingin, …")
     kana.ts         konversi romaji → kana dan normalisasi jawaban
     srs.ts          jadwal pengulangan berjarak dan pemilihan soal
   state/            pengaturan + progres (React context, localStorage)
@@ -46,6 +48,8 @@ src/
    `{ k: '働く', r: 'はたらく', m: 'bekerja', t: 'g', lv: 5 },`
 2. Jika kata itu punya pengecualian, beri tanda `f` (lihat komentar di atas file).
 3. Jika ingin muncul di soal keigo, tambahkan entrinya di `src/data/keigo.ts`.
+   Untuk kata kerja transitif, tambahkan juga arti pasifnya di `src/data/passive.ts`
+   (tanpa itu, pasifnya diartikan sebagai pasif penderita: "terganggu karena ada yang …").
 4. Jalankan `npm test`. Test memeriksa semua kombinasi kata × bentuk, termasuk cara baca, akhiran, dan id yang duplikat.
 
 ## Menambah bentuk konjugasi

@@ -7,6 +7,7 @@ import { Ruby } from '../components/Ruby';
 import { FORM_BY_ID, formLabel, GROUP_NAME } from '../data/forms';
 import { conjugate, uniqueSolutions } from '../lib/conjugate';
 import { explain } from '../lib/explain';
+import { gloss } from '../lib/gloss';
 import { hasLatin, normalizeAnswer, romaToKana } from '../lib/kana';
 import { formatInterval, INTERVALS, parseKey, pickItem, type PickedItem, type SrsEntry } from '../lib/srs';
 import { useStore } from '../state/store';
@@ -108,6 +109,7 @@ export function DrillPage() {
   const F = FORM_BY_ID[item.f];
   const sols = uniqueSolutions(conjugate(item.w, item.f)!);
   const [main, ...alts] = sols;
+  const meaning = gloss(item.w, item.f);
 
   return (
     <>
@@ -125,6 +127,9 @@ export function DrillPage() {
           <span className="arrow" aria-hidden="true">→</span>
           <span>{formLabel(item.f)}</span>
           {settings.pattern && <span className="pat" lang="ja">{F.jp}</span>}
+        </div>
+        <div className="q-gloss">
+          Artinya: <b>{meaning}</b>
         </div>
         <div className="q-desc">{F.desc}</div>
 
@@ -166,6 +171,7 @@ export function DrillPage() {
             <FbRow label="Jawaban">
               <span className="big" lang="ja"><Ruby k={main.k} r={main.r} /></span>
             </FbRow>
+            <FbRow label="Arti">{meaning}</FbRow>
             {alts.length > 0 && (
               <FbRow label="Juga benar">
                 <span className="alts" lang="ja">

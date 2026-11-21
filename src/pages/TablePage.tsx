@@ -5,6 +5,7 @@ import { FORM_BY_ID, FORM_GROUPS, GROUP_NAME } from '../data/forms';
 import { WORDS } from '../data/words';
 import { applies, conjugate, uniqueSolutions, WORD_BY_ID } from '../lib/conjugate';
 import { explain } from '../lib/explain';
+import { gloss } from '../lib/gloss';
 import { romaToKana } from '../lib/kana';
 import type { Word } from '../types';
 
@@ -86,6 +87,7 @@ export function TablePage() {
                       </td>
                       <td className="a" lang="ja">
                         <Ruby k={main.k} r={main.r} />
+                        <span className="gloss">{gloss(word, id)}</span>
                         {alts.length > 0 && (
                           <span className="alt">juga: {alts.map((x) => (x.k === x.r ? x.k : `${x.k} (${x.r})`)).join(', ')}</span>
                         )}
